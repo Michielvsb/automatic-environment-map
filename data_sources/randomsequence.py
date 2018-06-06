@@ -16,7 +16,6 @@ class RandomSequence():
         self.translate = translate
 
         self.image = cv2.imread(file)
-        #self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
 
         self.amount = amount
         self.rotation = rotation

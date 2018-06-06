@@ -47,40 +47,6 @@ class MapImage(Function):
 
         return transformed_image
 
-    # @staticmethod
-    # def backward(ctx, grad_output):
-    #
-    #     grad_output = grad_output.data
-    #
-    #     grid, image = ctx.grid, ctx.image
-    #
-    #     batch_size = grid.size(0)
-    #
-    #     height, width = grid.size(1), grid.size(2)
-    #
-    #     grad_input = torch.zeros((batch_size, height, width, 2))
-    #     for b in range(batch_size):
-    #         for u in range(width):
-    #             for v in range(height):
-    #
-    #                 cor_h, cor_w = grid[b, v, u, 1], grid[b, v, u, 0]
-    #                 cor_h_fl, cor_h_ce, cor_w_fl, cor_w_ce = int(floor(cor_h)), int(ceil(cor_h)), int(floor(cor_w)), int(ceil(cor_w))
-    #
-    #                 grad_input[b, v, u, 0] -= image[b, cor_h_fl, cor_w_fl]*(1-abs(cor_w-cor_w_fl))  # d_image/dv
-    #                 grad_input[b, v, u, 0] -= image[b, cor_h_fl, cor_w_ce]*(1-abs(cor_w-cor_w_ce))  # d_image/dv
-    #                 grad_input[b, v, u, 0] += image[b, cor_h_ce, cor_w_fl]*(1-abs(cor_w-cor_w_fl))  # d_image/dv
-    #                 grad_input[b, v, u, 0] += image[b, cor_h_ce, cor_w_ce]*(1-abs(cor_w-cor_w_ce))  # d_image/dv
-    #                 grad_input[b, v, u, 0] *= grad_output[b, v, u]
-    #
-    #                 grad_input[b, v, u, 1] -= image[b, cor_h_fl, cor_w_fl]*(1-abs(cor_h-cor_h_fl))  # d_image/du
-    #                 grad_input[b, v, u, 1] += image[b, cor_h_fl, cor_w_ce]*(1-abs(cor_h-cor_h_fl))  # d_image/du
-    #                 grad_input[b, v, u, 1] -= image[b, cor_h_ce, cor_w_fl]*(1-abs(cor_h-cor_h_ce))  # d_image/du
-    #                 grad_input[b, v, u, 1] += image[b, cor_h_ce, cor_w_ce]*(1-abs(cor_h-cor_h_ce))  # d_image/du
-    #                 grad_input[b, v, u, 1] *= grad_output[b, v, u]
-    #
-    #
-    #     print grad_input
-    #     return Variable(grad_input), None
 
     @staticmethod
     def backward(ctx, grad_output):

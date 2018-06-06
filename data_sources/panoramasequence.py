@@ -3,8 +3,6 @@ import csv
 import cv2
 import numpy
 from math import floor
-from homographydataset import HomographyDataset
-
 
 class PanoramaSequence():
 

@@ -50,9 +50,6 @@ def create_grid(h, size, center):
     co = co.view((batch_size,-1,2)) # reshape for multiplication
     co = co.transpose(1,2)
     co = torch.cat([co, Variable(torch.ones((batch_size,1,co.size(2))).cuda())],1)
-    #
-    # for b in range(batch_size):
-    #     co[b] = torch.mm(H_inv[b],co[b]) # each batch individually seems most efficient
 
     co = torch.stack([torch.mm(currentH.squeeze(),curr_co.squeeze()) for currentH, curr_co in zip(h.split(1), co.split(1) )])
 

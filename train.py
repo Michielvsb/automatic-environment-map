@@ -24,7 +24,6 @@ parser.add_argument('-b', '--batch', help='batch size', default=default_batch_si
 parser.add_argument('-lr', '--learning_rate', help='learning rate', default=default_learning_rate, type=float)
 parser.add_argument('-ep', '--epochs', help='number of epochs', default=default_number_epochs, type=int)
 parser.add_argument('-sr','--safe_reset', help="if output file exists, use that as input file to prevent lost work", action="store_true")
-#parser.add_argument('-no_dr','--no_dropout', help="delete dropout", action="store_true")
 parser.add_argument('-su','--supervised', help="train supervised", action="store_true")
 parser.add_argument('-n','--net', default="original", help="choose net name")
 parser.add_argument('-m','--map', default="homographymap", help="choose map name")
